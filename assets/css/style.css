@@ -1,4 +1,40 @@
 /* --------------------------------------------------------------------------------------------Menu */
+.top-line {
+  width: 100%;
+  border-bottom: #002e63 3px solid;
+  position: relative;
+  text-align: center; }
+  .top-line span {
+    width: 100%;
+    background: #002e63;
+    height: 207px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-top: 2px solid #ebbf2a;
+    animation: lineAnim 1s ease-in-out 4s forwards; }
+@keyframes lineAnim {
+  100% {
+    background: #002e63;
+    height: 0px;
+    border-color: transparent; } }
+.shadows {
+  position: relative;
+  text-shadow: -15px 5px 20px #ced0d3;
+  color: white;
+  letter-spacing: -0.05em;
+  font-family: 'Anton', Arial, sans-serif;
+  user-select: none;
+  font-size: 100px;
+  transition: all 0.25s ease-out;
+  text-align: center;
+  font-weight: 800;
+  padding-bottom: 8px; }
+
+.shadows:hover {
+  text-shadow: -16px 6px 15px #ced0d3;
+  color: #fdf7e4; }
+
 @media (min-width: 992px) {
   .dropdown:hover .dropdown-toggle::after {
     animation: move 4s ease-in-out 1; }
@@ -16,10 +52,17 @@
     60% {
       transform: rotate(0deg);
       color: #fff; } } }
+#navbarSupportedContent > ul > li.active > a {
+  font-size: 31px;
+  padding: 0 10px; }
+
 .menu-area {
   background: #002e63;
-  border-bottom: 2px solid #ebbf2a; }
-
+  border-bottom: 2px solid #ebbf2a;
+  animation: menuBg 1s ease-in 5s forwards; }
+@keyframes menuBg {
+  100% {
+    background: transparent; } }
 .dropdown-menu {
   padding: 0;
   margin: 0;
@@ -28,8 +71,24 @@
   border-radius: 0;
   -webkit-box-shadow: none !important;
   box-shadow: 0px 0px 2px 0px #333 !important;
-  letter-spacing: .5px; }
+  letter-spacing: .5px;
+  transform: translate(0px, 100px);
+  opacity: 0; }
 
+li.dropdown:hover .dropdown-menu {
+  animation: menuAn .2s ease-in forwards; }
+@keyframes menuAn {
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+    transition: opacity 1s ease-out !important; } }
+#navbarSupportedContent > ul > li {
+  animation: mRight 1s ease-in 5s forwards; }
+@keyframes mRight {
+  50% {
+    margin-right: 10px; }
+  100% {
+    margin-right: 5px; } }
 .mainmenu a,
 .navbar-default .navbar-nav > li > a,
 .mainmenu ul li a,
@@ -41,7 +100,8 @@
   padding: 12px 20px;
   font-family: 'Roboto', sans-serif;
   display: block !important;
-  text-shadow: 0 0 1px #000; }
+  text-shadow: 0 0 1px #000;
+  background: #002e63; }
 
 .mainmenu .active a,
 .mainmenu .active a:focus,
@@ -135,5 +195,19 @@
   .navbar-nav .show .dropdown-menu .dropdown-menu .dropdown-menu > li > a {
     padding: 16px 15px 16px 45px; } }
 /* --------------------------------------------------------------------------------------------Menu */
+.canBox {
+  position: relative;
+  top: 0; }
+
+canvas {
+  background-image: url("imgs/codeBgCanvas.jpg");
+  background-color: #333;
+  background-size: cover;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  z-index: -1; }
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:700'); */
 
 /*# sourceMappingURL=style.css.map */

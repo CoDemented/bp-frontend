@@ -3,6 +3,50 @@ $colorPrimary: #002e63;
 $colorSecondary: #ebbf2a;
 
 /* --------------------------------------------------------------------------------------------Menu */
+.top-line {
+    width: 100%;
+    border-bottom: $colorPrimary 3px solid;
+    // box-shadow: 0 0px 4px 0px #000;
+    position: relative;
+    text-align: center;
+
+    span {
+        width: 100%;
+        background: $colorPrimary;
+        height: 207px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-top: 2px solid $colorSecondary;
+        animation: lineAnim 1s ease-in-out 4s forwards;
+
+        @keyframes lineAnim {
+            // 70%{transform: rotate(-180deg);}
+            100%{background: $colorPrimary; height: 0px; border-color: transparent;}
+        }
+    }
+}
+
+.shadows {
+    position: relative;
+    text-shadow: -15px 5px 20px #ced0d3;
+    color: white;
+
+    letter-spacing: -0.05em;
+    font-family: 'Anton', Arial, sans-serif;
+    user-select: none;
+    font-size: 100px;
+    transition: all 0.25s ease-out;
+    text-align: center;
+    font-weight: 800;
+    padding-bottom: 8px;
+}
+.shadows:hover {
+    text-shadow: -16px 6px 15px #ced0d3;
+    color: lighten($colorSecondary, 40);
+}
+
+
 @media(min-width: 992px){
     .dropdown:hover  .dropdown-toggle::after {
         animation: move 4s ease-in-out 1;
@@ -26,10 +70,19 @@ $colorSecondary: #ebbf2a;
             }
         }
 }
+#navbarSupportedContent > ul > li.active > a {
+    font-size: 31px;
+    padding: 0 10px;
+}
 .menu-area {
     background: $colorPrimary;
     border-bottom: 2px solid $colorSecondary;
     // border-top: 2px solid $colorSecondary;
+    animation: menuBg 1s ease-in 5s forwards;
+
+    @keyframes menuBg {
+        100% {background: transparent;}
+    }
 }
 
 .dropdown-menu {
@@ -41,8 +94,32 @@ $colorSecondary: #ebbf2a;
     -webkit-box-shadow: none !important;
     box-shadow: 0px 0px 2px 0px #333 !important;
     letter-spacing: .5px;
+    transform: translate(0px, 100px);
+        opacity: 0;
 }
 
+li.dropdown:hover .dropdown-menu {
+        
+        animation: menuAn .2s ease-in forwards;
+
+    @keyframes menuAn {
+        100% {opacity: 1;
+    transform: translate(0px, 0px);
+
+            transition: opacity 1s ease-out !important;}
+    }
+}
+
+
+#navbarSupportedContent > ul > li {
+    animation: mRight 1s ease-in 5s forwards;
+
+    @keyframes mRight {
+        50% {margin-right: 10px;}
+        100% {margin-right: 5px;}
+
+    }
+}
 .mainmenu a,
 .navbar-default .navbar-nav>li>a,
 .mainmenu ul li a,
@@ -55,7 +132,10 @@ $colorSecondary: #ebbf2a;
     font-family: 'Roboto', sans-serif;
     display: block !important;
     text-shadow: 0 0 1px #000;
+    background: $colorPrimary;
+    
 }
+    
 
 .mainmenu .active a,
 .mainmenu .active a:focus,
@@ -113,7 +193,7 @@ $colorSecondary: #ebbf2a;
 
 @media only screen and (min-width: 767px) {
     .mainmenu .collapse ul li:hover>ul {
-        display: block
+        display: block;
     }
 
     .mainmenu .collapse ul ul {
@@ -121,7 +201,7 @@ $colorSecondary: #ebbf2a;
         top: 100%;
         left: 0;
         min-width: 250px;
-        display: none
+        display: none;
     }
 
     /*******/
@@ -171,3 +251,31 @@ $colorSecondary: #ebbf2a;
     }
 }
 /* --------------------------------------------------------------------------------------------Menu */
+.canBox {
+    position: relative;
+    top: 0;
+}
+
+canvas {
+    background-image: url("imgs/codeBgCanvas.jpg");
+    background-color: #333;
+    background-size: cover;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    z-index: -1;
+}
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:700'); */
+
+
+
+
+
+
+
+
+
+
+
+
