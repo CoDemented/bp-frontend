@@ -1,4 +1,21 @@
 /* --------------------------------------------------------------------------------------------Menu */
+.loading {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 555;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .loading.fadeOut {
+    animation: fadeOut 1.5s linear forwards; }
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    display: none; } }
 .top-line {
   width: 100%;
   border-bottom: #002e63 3px solid;
@@ -70,14 +87,15 @@
   border: 0 solid rgba(0, 0, 0, 0.15);
   border-radius: 0;
   -webkit-box-shadow: none !important;
-  box-shadow: 0px 0px 2px 0px #333 !important;
   letter-spacing: .5px;
-  transform: translate(0px, 100px);
+  transform: translate(0px, 30px);
   opacity: 0; }
 
 li.dropdown:hover .dropdown-menu {
-  animation: menuAn .2s ease-in forwards; }
+  animation: menuAn .2s ease-in-out forwards; }
 @keyframes menuAn {
+  70% {
+    opacity: .2; }
   100% {
     opacity: 1;
     transform: translate(0px, 0px);
@@ -128,18 +146,6 @@ li.dropdown:hover .dropdown-menu {
 .mainmenu .collapse ul ul ul > li:hover > a {
   background: #ebbf2a; }
 
-.mainmenu .collapse ul ul,
-.mainmenu .collapse ul ul.dropdown-menu {
-  background: #002e63; }
-
-.mainmenu .collapse ul ul ul,
-.mainmenu .collapse ul ul ul.dropdown-menu {
-  background: #00224a; }
-
-.mainmenu .collapse ul ul ul ul,
-.mainmenu .collapse ul ul ul ul.dropdown-menu {
-  background: #001630; }
-
 /******************************Drop-down menu work on hover**********************************/
 .mainmenu {
   background: none;
@@ -162,10 +168,12 @@ li.dropdown:hover .dropdown-menu {
 
   /*******/
   .mainmenu .collapse ul ul li {
-    position: relative; }
+    position: relative;
+    transform: translate(0px, -5px);
+    margin-top: 5px; }
 
-  .mainmenu .collapse ul ul li:hover > ul {
-    display: block; }
+  #navbarSupportedContent > ul > li.dropdown > ul > li:nth-child(1) {
+    margin-top: 10px; }
 
   .mainmenu .collapse ul ul ul {
     position: absolute;

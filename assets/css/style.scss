@@ -1,8 +1,28 @@
-
 $colorPrimary: #002e63;
 $colorSecondary: #ebbf2a;
 
 /* --------------------------------------------------------------------------------------------Menu */
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.fadeOut {
+        animation: fadeOut 1.5s linear forwards;
+        @keyframes fadeOut {
+            100% {opacity: 0;
+                display: none;
+            }
+        }
+    }
+}
 .top-line {
     width: 100%;
     border-bottom: $colorPrimary 3px solid;
@@ -21,8 +41,13 @@ $colorSecondary: #ebbf2a;
         animation: lineAnim 1s ease-in-out 4s forwards;
 
         @keyframes lineAnim {
+
             // 70%{transform: rotate(-180deg);}
-            100%{background: $colorPrimary; height: 0px; border-color: transparent;}
+            100% {
+                background: $colorPrimary;
+                height: 0px;
+                border-color: transparent;
+            }
         }
     }
 }
@@ -41,47 +66,55 @@ $colorSecondary: #ebbf2a;
     font-weight: 800;
     padding-bottom: 8px;
 }
+
 .shadows:hover {
     text-shadow: -16px 6px 15px #ced0d3;
     color: lighten($colorSecondary, 40);
 }
 
 
-@media(min-width: 992px){
-    .dropdown:hover  .dropdown-toggle::after {
+@media(min-width: 992px) {
+    .dropdown:hover .dropdown-toggle::after {
         animation: move 4s ease-in-out 1;
+    }
+
+    @keyframes move {
+        15% {
+            transform: rotate(-92deg);
+            color: $colorSecondary
         }
-        @keyframes move {
-            15% {
-                transform: rotate(-92deg);
-                color: $colorSecondary
-            }
-            30% {
-                transform: rotate(0deg);
-                color: #fff;
-            }
-            45% {
-                transform: rotate(92deg);
-                color: $colorSecondary
-            }
-            60% {
-                transform: rotate(0deg);
-                color: #fff;
-            }
+
+        30% {
+            transform: rotate(0deg);
+            color: #fff;
         }
+
+        45% {
+            transform: rotate(92deg);
+            color: $colorSecondary
+        }
+
+        60% {
+            transform: rotate(0deg);
+            color: #fff;
+        }
+    }
 }
-#navbarSupportedContent > ul > li.active > a {
+
+#navbarSupportedContent>ul>li.active>a {
     font-size: 31px;
     padding: 0 10px;
 }
+
 .menu-area {
     background: $colorPrimary;
     border-bottom: 2px solid $colorSecondary;
-    // border-top: 2px solid $colorSecondary;
     animation: menuBg 1s ease-in 5s forwards;
 
     @keyframes menuBg {
-        100% {background: transparent;}
+        100% {
+            background: transparent;
+        }
     }
 }
 
@@ -92,34 +125,46 @@ $colorSecondary: #ebbf2a;
     border: 0 solid rgba(0, 0, 0, .15);
     border-radius: 0;
     -webkit-box-shadow: none !important;
-    box-shadow: 0px 0px 2px 0px #333 !important;
+    // box-shadow: 0px 0px 2px 0px #333 !important;
     letter-spacing: .5px;
-    transform: translate(0px, 100px);
-        opacity: 0;
+    transform: translate(0px, 30px);
+    opacity: 0;
 }
 
 li.dropdown:hover .dropdown-menu {
-        
-        animation: menuAn .2s ease-in forwards;
+
+    animation: menuAn .2s ease-in-out forwards;
 
     @keyframes menuAn {
-        100% {opacity: 1;
-    transform: translate(0px, 0px);
+        70% {
+            opacity: .2;
+        }
 
-            transition: opacity 1s ease-out !important;}
+        100% {
+            opacity: 1;
+            transform: translate(0px, 0px);
+
+            transition: opacity 1s ease-out !important;
+        }
     }
 }
 
 
-#navbarSupportedContent > ul > li {
+#navbarSupportedContent>ul>li {
     animation: mRight 1s ease-in 5s forwards;
 
     @keyframes mRight {
-        50% {margin-right: 10px;}
-        100% {margin-right: 5px;}
+        50% {
+            margin-right: 10px;
+        }
+
+        100% {
+            margin-right: 5px;
+        }
 
     }
 }
+
 .mainmenu a,
 .navbar-default .navbar-nav>li>a,
 .mainmenu ul li a,
@@ -133,9 +178,9 @@ li.dropdown:hover .dropdown-menu {
     display: block !important;
     text-shadow: 0 0 1px #000;
     background: $colorPrimary;
-    
+
 }
-    
+
 
 .mainmenu .active a,
 .mainmenu .active a:focus,
@@ -168,17 +213,17 @@ li.dropdown:hover .dropdown-menu {
 
 .mainmenu .collapse ul ul,
 .mainmenu .collapse ul ul.dropdown-menu {
-    background: $colorPrimary
+    // background: $colorPrimary
 }
 
 .mainmenu .collapse ul ul ul,
 .mainmenu .collapse ul ul ul.dropdown-menu {
-    background: darken($colorPrimary, 5%)
+    // background: darken($colorPrimary, 5%)
 }
 
 .mainmenu .collapse ul ul ul ul,
 .mainmenu .collapse ul ul ul ul.dropdown-menu {
-    background: darken($colorPrimary, 10%)
+    // background: darken($colorPrimary, 10%)
 }
 
 /******************************Drop-down menu work on hover**********************************/
@@ -206,11 +251,15 @@ li.dropdown:hover .dropdown-menu {
 
     /*******/
     .mainmenu .collapse ul ul li {
-        position: relative
+        position: relative;
+        transform: translate(0px, -5px);
+                margin-top: 5px;
+
+        
     }
 
-    .mainmenu .collapse ul ul li:hover>ul {
-        display: block
+    #navbarSupportedContent>ul>li.dropdown>ul>li:nth-child(1) {
+        margin-top: 10px;
     }
 
     .mainmenu .collapse ul ul ul {
@@ -250,6 +299,7 @@ li.dropdown:hover .dropdown-menu {
         padding: 16px 15px 16px 45px
     }
 }
+
 /* --------------------------------------------------------------------------------------------Menu */
 .canBox {
     position: relative;
@@ -267,15 +317,3 @@ canvas {
 }
 
 /* @import url('https://fonts.googleapis.com/css?family=Roboto:700'); */
-
-
-
-
-
-
-
-
-
-
-
-
