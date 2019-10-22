@@ -13,15 +13,6 @@ $colorSecondary: #ebbf2a;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &.fadeOut {
-        animation: fadeOut 1.5s linear forwards;
-        @keyframes fadeOut {
-            100% {opacity: 0;
-                display: none;
-            }
-        }
-    }
 }
 .top-line {
     width: 100%;
@@ -38,11 +29,9 @@ $colorSecondary: #ebbf2a;
         left: 50%;
         transform: translate(-50%, 0);
         border-top: 2px solid $colorSecondary;
+
         animation: lineAnim 1s ease-in-out 4s forwards;
-
         @keyframes lineAnim {
-
-            // 70%{transform: rotate(-180deg);}
             100% {
                 background: $colorPrimary;
                 height: 0px;

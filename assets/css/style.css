@@ -10,12 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center; }
-  .loading.fadeOut {
-    animation: fadeOut 1.5s linear forwards; }
-@keyframes fadeOut {
-  100% {
-    opacity: 0;
-    display: none; } }
+
 .top-line {
   width: 100%;
   border-bottom: #002e63 3px solid;
